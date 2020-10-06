@@ -1,0 +1,79 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: radial-gradient(#ffeb3b,#f7ec8b);
+}
+#wrapper{
+    margin: 20px auto;
+    width: 800px;
+    text-align: center;
+    position: relative;
+}
+h1{
+    color:midnightblue;
+    margin-bottom: 20px;
+}
+h2{
+    color: darkred;
+    margin-bottom: 20px;
+}
+.row{
+    line-height: 0;
+}
+.sqr{
+    background-color: black;
+    width: 196px;
+    height: 146px;
+    display: inline-block;
+    border: 2px solid black;
+}
+.cat{
+    background-image: url(images/cat.jpg);
+    background-size: cover;
+}
+.fire{
+    background-image: url(images/fire.jpg);
+    background-size: cover;
+}.waterfall{
+    background-image: url(images/waterfall.jpg);
+    background-size: cover;
+}.tent{
+    background-image: url(images/tent.jpg);
+    background-size: cover;
+}.hike{
+    background-image: url(images/hike.jpg);
+    background-size: cover;
+}.guitar{
+    background-image: url(images/guitar.jpg);
+    background-size: cover;
+}.faith{
+    background-image: url(images/faith.jpg);
+    background-size: cover;
+}.pie{
+    background-image: url(images/pie.jpg);
+    background-size: cover;
+}
+.question{
+    background-image: url(images/qm.jpg);
+    background-size: cover;
+}
+.success{
+    background-image: url(images/leaves.jpg);
+    background-size: cover;
+}
+.msgStyle{
+    position: absolute;
+    left: 201px;
+    top: 379px;
+    background-color: Darkred;
+    width: 398px;
+    height: 298px;
+}
+#pass{
+    padding: 120px 0px;
+    font-size: 50px;
+    color: yellow;
+}
