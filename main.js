@@ -1,16 +1,30 @@
 $(document).ready(function(){
 
-    // Draw starting board with question marks
-    // Each square gets a row-column ID
+    // Randomize an array of numbers 1 to 16
+    /* Randomize array in-place using Durstenfeld shuffle algorithm */
+    /* https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
+    function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
 
+    // Draw starting board with question marks
+    // Each square gets a row-column ID to identify pic
+    // Used randomized ID to mix up the pictures
     function drawQuestionBd(){
         output = "";
 
-        var count = 1;
+        var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+        array2 = shuffleArray(array);
+        var count = 0;
         for (var row = 0; row < 4; row++){
             output += "<div class = 'row'>"
             for(var col = 0; col < 4; col++){
-                output += "<div class = 'sqr question' id='" + count + "'></div>"
+                output += "<div class = 'sqr question' id='" + array[count] + "'></div>"
                 count++;
             }
             output += "</div>"
@@ -21,12 +35,16 @@ $(document).ready(function(){
 
     drawQuestionBd();
 
-    // var board = [
-    //     [1,2,5,8],
-    //     [3,6,1,7],
-    //     [4,3,8,2],
-    //     [5,7,6,4]
-    // ];
+    // Once all squares are matched, print this message:
+    function successMsg(){
+        $("#msg").attr("class", "msgStyle");
+        $('#pass').text("You PASSED!");
+        $('button').attr("class", "showButton");
+        $('button').text("Click to continue");
+        $('button').click(function(){
+            window.location.href = "final.html";
+        })
+    }
 
     var boardDict = {
         0: 'pie',
@@ -39,32 +57,17 @@ $(document).ready(function(){
         7: 'faith',
     }
 
-    // function drawBoard(){
-    //     output = "";
-
-    //     for(var row = 0; row < board.length; row++){
-    //         output += "<div class = 'row'>"
-    //         for(var i = 0; i < board[row].length; i++){
-    //             output += "<div class = 'sqr " + boardDict[board[row][i]] +"'></div>"
-    //         }
-    //         output += "</div>"
-    //     }
-
-    //     document.getElementById('board').innerHTML = output;
-    // }
-
-    // drawBoard();
-
-    function successMsg(){
-        $("#msg").attr("class", "msgStyle");
-        $('#pass').text("You PASSED!");
-    }
-
+    // Keeps track of when 2 squares have been clicked
     var doubles = 0;
+    // Tracks which two pictures have been clicked
     pair = [];
+    // only allows two squares to be clicked at a time
+    // pauses to allow pictures to be seen before moving on
     var pause = false;
+    // Keeps track of how many pairs have been found
     var successes = 0;
 
+    // What to do when a square gets clicked
     $(".sqr").click(function(){
         if(!pause){
             // check if already solved
@@ -73,27 +76,22 @@ $(document).ready(function(){
                 doubles++;
                 // get id of square clicked
                 var loc = $(this).attr("id");
-                console.log("Picture was clicked");
-                console.log("location of pic is", loc);
-                console.log("doubles is", doubles);
-                // get new pic
+                // replace ? with new pic
                 $(this).attr("class", "sqr " + boardDict[loc % 8])
                 // store loc of pic info
                 pair.push(loc);
-                console.log("Pair is", pair);
                 // check to see if 2 pics have been clicked yet
                 if (doubles == 2){
-                    console.log("Since doubles is 2, checking for match");
                     pause = true;
-                    window.setTimeout(checkPair,2000);
+                    window.setTimeout(checkPair,1000);
                 }
             }
         }
     })
 
+    // Once two pictures have been clicked, checks to see if it is a match
     function checkPair(){
         if (pair[0] % 8 == pair[1] % 8){
-            console.log("It is a match");
             $("#" + pair[0]).attr("class", "sqr success");
             $("#" + pair[1]).attr("class", "sqr success");
             successes++;
@@ -106,17 +104,8 @@ $(document).ready(function(){
             $("#" + pair[1]).attr("class", "sqr question");
         }
         pair = [];
-        doubles=0;
+        doubles = 0;
         pause = false;
     }
-            
-    // $(".sqr").onclick="setTimeout(checkPair,3000)"
-
-    //     var replaced = $(this).attr("pair_src");
-    //     var original = $(this).attr("src");
-    //     $(this).attr("src", replaced);
-    //     $(this).attr("pair_src", original);
-    // })
-    // })
 
 })

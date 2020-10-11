@@ -13,7 +13,7 @@ body{
     position: relative;
 }
 h1{
-    color:midnightblue;
+    color:#491c34;
     margin-bottom: 20px;
 }
 h2{
@@ -67,13 +67,21 @@ h2{
 .msgStyle{
     position: absolute;
     left: 201px;
-    top: 379px;
-    background-color: Darkred;
-    width: 398px;
-    height: 298px;
+    top: 377px;
+    background-color: #94325a;
+    width: 394px;
+    height: 294px;
+    border: 2px solid black;
 }
 #pass{
     padding: 120px 0px;
     font-size: 50px;
     color: yellow;
+}
+.showButton{
+    background-color: yellow;
+    color: #491c34;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
 }
