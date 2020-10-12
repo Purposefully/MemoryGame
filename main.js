@@ -47,7 +47,7 @@ $(document).ready(function(){
     }
 
     var boardDict = {
-        0: 'pie',
+        0: 'dessert',
         1: 'cat',
         2: 'fire',
         3: 'waterfall',
