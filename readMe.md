@@ -7,7 +7,7 @@
     <a href="" alt="Video Tour">Take a Video Tour</a>
 </p> -->
 
-[![Page Image](/Screenshots/InitialPage.png?raw=true)]
+![Page Image](/Screenshots/InitialPage.png?raw=true)
 
 <!-- [![Video Tour](/Screenshots/Login.png?raw=true)](https://youtu.be/) -->
 
@@ -65,7 +65,7 @@ ___
 ___
 
 ## Functionality
-Open loading the page, pairs of images have been randomly assigned to the gameboard and "covered" with question mark images.  The user clicks on a square to reveal the hidden image.  Once two squares have been selected, the game freezes for a couple seconds so the user can see both images.  If the images match, they are replaced with a success image.  If they do not match, they are covered with the question mark image again.
+Upon loading the page, pairs of images have been randomly assigned to the gameboard and "covered" with question mark images.  The user clicks on a square to reveal the hidden image.  Once two squares have been selected, the game freezes for a couple seconds so the user can see both images.  If the images match, they are replaced with a success image.  If they do not match, they are covered with the question mark image again.
 
 Once all images have been correctly paired, the center squares display a success message.  The user may click a button to continue to the final page which displays a birthday wish.
 
